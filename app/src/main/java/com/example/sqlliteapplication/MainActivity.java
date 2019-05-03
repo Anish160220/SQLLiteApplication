@@ -1,5 +1,6 @@
 package com.example.sqlliteapplication;
 
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 
 import android.support.v7.app.AppCompatActivity;
@@ -13,7 +14,7 @@ import helper.MyHelper;
 
 public class MainActivity extends AppCompatActivity {
     EditText etWord, etMeaning;
-    Button btnAddWord;
+    Button btnAddWord,btnfetch,btnSearchByWord;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
         etWord = findViewById(R.id.etWord);
         etMeaning = findViewById(R.id.etMeaning);
         btnAddWord = findViewById(R.id.btnAddWord);
+        btnfetch = findViewById(R.id.btnfetch);
+        btnSearchByWord = findViewById(R.id.btnSearchByWord);
 
         final MyHelper myHelper = new MyHelper(this); //constructor is called
         final SQLiteDatabase sqLiteDatabase = myHelper.getWritableDatabase(); //oncreate function is called
@@ -38,6 +41,22 @@ public class MainActivity extends AppCompatActivity {
                 else {
                     Toast.makeText(MainActivity.this, "Error",Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+
+        btnfetch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               Intent intent = new Intent(MainActivity.this,DisplayWordActivity.class);
+               startActivity(intent);
+            }
+        });
+
+        btnSearchByWord.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,SearchWordActivity.class);
+                startActivity(intent);
             }
         });
     }

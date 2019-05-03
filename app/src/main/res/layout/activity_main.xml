@@ -25,4 +25,16 @@
         android:id="@+id/btnAddWord"
         android:text="Add Word"/>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnfetch"
+        android:text="Fetch"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnSearchByWord"
+        android:text="Search By Word"/>
+
 </LinearLayout>
